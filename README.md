@@ -26,7 +26,6 @@ In addition to that we have made a cool front end which can be hosted and deploy
 The project draws inspiration from several pioneering works:
 
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
-   - ![openpose](https://github.com/user-attachments/assets/ccc6f88a-b37f-4711-8ba3-1336e8b9f855)
 - [MetaPose](https://metapose.github.io/)
 - [Faster VoxelPose](https://github.com/AlvinYH/Faster-VoxelPose)
 - [MMPose](https://github.com/open-mmlab/mmpose)
