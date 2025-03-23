@@ -41,8 +41,8 @@ These references have influenced our approach for 2D keypoint extraction and 3D 
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-repo/multi-camera-3d-cricket-pose.git
-   cd multi-camera-3d-cricket-pose
+   git clone https://github.com/Phoenix1859/hackeza_205
+   cd hackeza_205
    ```
 
 2. **Install Dependencies:**
