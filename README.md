@@ -24,14 +24,16 @@ In addition to that we have made a cool front end which can be hosted and deploy
 
 ## Papers & Projects Referred
 The project draws inspiration from several pioneering works:
-- OpenPose
-- Metapose
-- Fast VoxelPose
-- MMPose
-- MVPose
+
+- [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+- [MetaPose](https://metapose.github.io/)
+- [Faster VoxelPose](https://github.com/AlvinYH/Faster-VoxelPose)
+- [MMPose](https://github.com/open-mmlab/mmpose)
+- [MVPose](https://github.com/zju3dv/mvpose)
 - Temo
 - Fast 3D Human Pose
-- Blazepose
+- [BlazePose](https://github.com/geaxgx/depthai_blazepose)
+
 
 These references have influenced our approach for 2D keypoint extraction and 3D triangulation.
 
