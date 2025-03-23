@@ -3,7 +3,7 @@
 ## Introduction
 This project aims to accurately estimate 3D poses of cricket players in real-time using multiple synchronized cameras. Leveraging known camera calibration matrices and state-of-the-art 2D keypoint extraction techniques, our solution reconstructs detailed 3D joint positions. The project is designed for deployment in cricket stadiums, where scalability and robust performance are crucial.
 
-In addition to that we have made a cool front end which can be hosted and deployed seamlessly 
+In addition to that we have made a cool front end which can be hosted and deployed seamlessly.
 
 
 ## Requirements
@@ -12,10 +12,6 @@ In addition to that we have made a cool front end which can be hosted and deploy
 - **Synchronized Cameras:** Utilize multiple cameras with precomputed camera projection matrices.
 - **2D Keypoint Extraction:** Extract 2D keypoints of players from each camera view using methods such as Mediapipe.
 - **Triangulation:** Apply triangulation techniques—either using translation matrices or deep learning inferences—to reconstruct accurate 3D joint positions.
-
-### Player Identification & Tracking
-- **Consistent Identification:** Develop algorithms to consistently associate the same player across different camera views.
-- **Stable IDs:** Maintain stable player IDs over time, ensuring smooth tracking throughout a sequence.
 
 ### Triangulation & 3D Reconstruction
 - **Occlusion Handling:** Intelligently merge partial observations from different cameras to overcome occlusions.
