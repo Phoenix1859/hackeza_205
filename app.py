@@ -95,14 +95,16 @@ def plot_world_landmarks(plt, ax, landmarks, visibility_th=0.5):
     
     return
 
-def process_video(input_video_path, output_video_path, output_csv_path='landmarks.csv', fps=None, progress_bar=None):
+def process_video(input_video_path, output_video_path, output_csv_path='landmarks.csv', fps=None, progress_bar=None, pose_params=None):
     # Initialize MediaPipe Pose
     mp_pose = mp.solutions.pose
-    pose = mp_pose.Pose(static_image_mode=False,
-                        model_complexity=1,
-                        smooth_landmarks=True,
-                        min_detection_confidence=0.5,
-                        min_tracking_confidence=0.5)
+    pose = mp_pose.Pose(
+        static_image_mode=pose_params.get('static_image_mode', False),
+        model_complexity=pose_params.get('model_complexity', 1),
+        smooth_landmarks=pose_params.get('smooth_landmarks', True),
+        min_detection_confidence=pose_params.get('min_detection_confidence', 0.5),
+        min_tracking_confidence=pose_params.get('min_tracking_confidence', 0.5)
+    )
 
     # Open input video
     cap = cv2.VideoCapture(input_video_path)
@@ -216,6 +218,50 @@ def app():
     
     generate_csv = st.checkbox("Generate CSV file with landmark data", value=True)
     
+    # Add advanced options in an expander
+    with st.expander("Advanced Options"):
+        st.subheader("MediaPipe Pose Parameters")
+        
+        # Create columns for better organization
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            static_image_mode = st.checkbox("Static Image Mode", value=False)
+            model_complexity = st.selectbox(
+                "Model Complexity",
+                options=[0, 1, 2],
+                index=1,
+                help="Higher complexity means better accuracy but slower processing"
+            )
+            smooth_landmarks = st.checkbox("Smooth Landmarks", value=True)
+        
+        with col2:
+            min_detection_confidence = st.slider(
+                "Minimum Detection Confidence",
+                min_value=0.0,
+                max_value=1.0,
+                value=0.5,
+                step=0.1,
+                help="Higher values mean more confident detections but might miss some poses"
+            )
+            min_tracking_confidence = st.slider(
+                "Minimum Tracking Confidence",
+                min_value=0.0,
+                max_value=1.0,
+                value=0.5,
+                step=0.1,
+                help="Higher values mean more confident tracking but might lose tracking more easily"
+            )
+        
+        # Store parameters in a dictionary
+        pose_params = {
+            'static_image_mode': static_image_mode,
+            'model_complexity': model_complexity,
+            'smooth_landmarks': smooth_landmarks,
+            'min_detection_confidence': min_detection_confidence,
+            'min_tracking_confidence': min_tracking_confidence
+        }
+    
     if uploaded_file is not None:
         st.video(uploaded_file)
         
@@ -238,7 +284,7 @@ def app():
             status_text.text("Processing video... This may take a while depending on the video length.")
             
             try:
-                success = process_video(input_path, output_video_path, output_csv_path, fps, progress_bar)
+                success = process_video(input_path, output_video_path, output_csv_path, fps, progress_bar, pose_params)
                 
                 if success:
                     status_text.text("Processing complete!")
@@ -254,10 +300,6 @@ def app():
                     if generate_csv and os.path.exists(output_csv_path):
                         csv_link = get_binary_file_downloader_html(output_csv_path, f"Download landmark data ({output_filename}.csv)")
                         st.markdown(csv_link, unsafe_allow_html=True)
-                    
-                    # # Show preview of processed video
-                    # st.subheader("Preview of Processed Video")
-                    # st.video(output_video_path)
                 else:
                     st.error("Error processing video. Please try a different file.")
             except Exception as e:
