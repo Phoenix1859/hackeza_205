@@ -109,7 +109,7 @@ The next stage involves converting 2D keypoints into 3D space. This is achieved 
 After processing, the final step is to visualize the 3D reconstructions. We generate a CSV file containing the keypoints (following the standard 33 keypoint human contour configuration per frame) and use visualization libraries to render the data.
 
 **Details:**  
-- **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
+- **CSV Output:** The processed data(3D pose landwmark coordinates) is output in a CSV format, making it easy to integrate with various visualization tools.
 ![final-render-ezgif com-optimize](https://github.com/user-attachments/assets/d86cfc50-16a6-4525-9949-e9a04e9af176)
 
 
