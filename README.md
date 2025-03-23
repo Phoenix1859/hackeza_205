@@ -41,8 +41,8 @@ These references have influenced our approach for 2D keypoint extraction and 3D 
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-repo/multi-camera-3d-cricket-pose.git
-   cd multi-camera-3d-cricket-pose
+   git clone https://github.com/Phoenix1859/hackeza_205
+   cd hackeza_205
    ```
 
 2. **Install Dependencies:**
@@ -85,19 +85,20 @@ For player detection and tracking, we employed YOLO (You Only Look Once). This m
 - Compatibility with various deep learning frameworks.
 
 **Example Reference:**
-![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
-![camera2_output-ezgif com-optimize (1)](https://github.com/user-attachments/assets/077936e4-4377-4bdc-bdfd-0d3fab50145b)
 
+
+![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
+
+![camera1_output-ezgif com-optimize](https://github.com/user-attachments/assets/f15c5e46-5404-435c-8860-9e0548fd409a)
 
 ---
 
-### 3) 3D Inferencing and Triangulation  
+### 3) 3D Inferencing 
 **Overview:**  
-The next stage involves converting 2D keypoints into 3D space. This is achieved by inferring depth from the single MP4 file and applying triangulation techniques to reconstruct the 3D positions of the players.
+The next stage involves converting 2D keypoints into 3D space. This is achieved by inferring depth from the single MP4 file and applying DL techniques to reconstruct the 3D positions of the players.
 
 **Details:**  
 - **Depth Estimation:** Using machine learning models, the depth of each keypoint is inferred from the 2D data.
-- **Triangulation:** With corresponding points from multiple frames (or using temporal coherence), triangulation algorithms calculate the 3D coordinates.
 **Benefits:**  
 - Provides a spatially accurate representation of player positions.
 - Enhances the analysis of player dynamics and interactions.
@@ -111,7 +112,7 @@ The next stage involves converting 2D keypoints into 3D space. This is achieved 
 After processing, the final step is to visualize the 3D reconstructions. We generate a CSV file containing the keypoints (following the standard 33 keypoint human contour configuration per frame) and use visualization libraries to render the data.
 
 **Details:**  
-- **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
+- **CSV Output:** The processed data(3D pose landwmark coordinates) is output in a CSV format, making it easy to integrate with various visualization tools.
 ![final-render-ezgif com-optimize](https://github.com/user-attachments/assets/d86cfc50-16a6-4525-9949-e9a04e9af176)
 
 
