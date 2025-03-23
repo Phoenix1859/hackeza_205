@@ -86,18 +86,16 @@ For player detection and tracking, we employed YOLO (You Only Look Once). This m
 
 **Example Reference:**
 ![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
-![camera2_output-ezgif com-optimize (1)](https://github.com/user-attachments/assets/077936e4-4377-4bdc-bdfd-0d3fab50145b)
 
 
 ---
 
-### 3) 3D Inferencing and Triangulation  
+### 3) 3D Inferencing 
 **Overview:**  
-The next stage involves converting 2D keypoints into 3D space. This is achieved by inferring depth from the single MP4 file and applying triangulation techniques to reconstruct the 3D positions of the players.
+The next stage involves converting 2D keypoints into 3D space. This is achieved by inferring depth from the single MP4 file and applying DL techniques to reconstruct the 3D positions of the players.
 
 **Details:**  
 - **Depth Estimation:** Using machine learning models, the depth of each keypoint is inferred from the 2D data.
-- **Triangulation:** With corresponding points from multiple frames (or using temporal coherence), triangulation algorithms calculate the 3D coordinates.
 **Benefits:**  
 - Provides a spatially accurate representation of player positions.
 - Enhances the analysis of player dynamics and interactions.
