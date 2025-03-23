@@ -119,6 +119,7 @@ For player detection and tracking, we employed YOLO (You Only Look Once). This m
 
 **Example Reference:**
 ![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
+![camera2_output-ezgif com-optimize (1)](https://github.com/user-attachments/assets/077936e4-4377-4bdc-bdfd-0d3fab50145b)
 
 
 ---
