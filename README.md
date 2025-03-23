@@ -6,33 +6,17 @@ This project aims to accurately estimate 3D poses of cricket players in real-tim
 In addition to that we have made a cool front end which can be hosted and deployed seamlessly.
 
 
-## Requirements
-
-### Multi-Camera 3D Pose Estimation
-- **Synchronized Cameras:** Utilize multiple cameras with precomputed camera projection matrices.
-- **2D Keypoint Extraction:** Extract 2D keypoints of players from each camera view using methods such as Mediapipe.
-- **Triangulation:** Apply triangulation techniques—either using translation matrices or deep learning inferences—to reconstruct accurate 3D joint positions.
-
-### Triangulation & 3D Reconstruction
-- **Occlusion Handling:** Intelligently merge partial observations from different cameras to overcome occlusions.
-- **Robustness:** Ensure the reconstruction is robust against varying camera angles and fast player movements.
-
-### Real-Time & Scalable Solution
-- **Optimized Pipeline:** Design the processing pipeline for real-time or near-real-time inference.
-- **Scalability:** Adapt the solution for different cricket stadium setups, ensuring it scales seamlessly with multiple camera inputs.
-
 
 ## Papers & Projects Referred
 The project draws inspiration from several pioneering works:
 
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
-   - ![openpose](https://github.com/user-attachments/assets/ccc6f88a-b37f-4711-8ba3-1336e8b9f855)
 - [MetaPose](https://metapose.github.io/)
 - [Faster VoxelPose](https://github.com/AlvinYH/Faster-VoxelPose)
 - [MMPose](https://github.com/open-mmlab/mmpose)
 - [MVPose](https://github.com/zju3dv/mvpose)
-- Temo
-- Fast 3D Human Pose
+- [TEMPO: Efficient Multi-View Pose Estimation, Tracking, and Forecasting](https://github.com/rccchoudhury/tempo?tab=readme-ov-file)
+- [Fast-3D-Human-Pose-Estimation](https://github.com/eddie0509tw/Fast-3D-Human-Pose-Estimation?tab=readme-ov-file)
 - [BlazePose](https://github.com/geaxgx/depthai_blazepose)
 
 
@@ -66,29 +50,12 @@ These references have influenced our approach for 2D keypoint extraction and 3D 
    pip install -r requirements.txt
    ```
 
-3. **Data PreProcessing:**
-   - Run the preprocessing script to convert raw images (JPEG) to synchronized MP4 video files.
+3. **Launching:**
+   - Launch the app.
    ```sh
-   python preprocess.py
+   streamlit run app.py
    ```
 
-4. **2D Keypoint Extraction:**
-   - Extract 2D keypoints using the Mediapipe module.
-   ```sh
-   python extract_2d.py
-   ```
-
-5. **3D Triangulation & Reconstruction:**
-   - Compute 3D poses using triangulation.
-   ```sh
-   python triangulate.py
-   ```
-
-6. **Rendering:**
-   - Visualize the 3D reconstruction.
-   ```sh
-   python render.py
-   ```
 
 ## Solution
 
@@ -119,6 +86,7 @@ For player detection and tracking, we employed YOLO (You Only Look Once). This m
 
 **Example Reference:**
 ![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
+![camera2_output-ezgif com-optimize (1)](https://github.com/user-attachments/assets/077936e4-4377-4bdc-bdfd-0d3fab50145b)
 
 
 ---
@@ -144,15 +112,10 @@ After processing, the final step is to visualize the 3D reconstructions. We gene
 
 **Details:**  
 - **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
+![final-render-ezgif com-optimize](https://github.com/user-attachments/assets/d86cfc50-16a6-4525-9949-e9a04e9af176)
 
 
-## Future Improvements
-- **Enhanced Occlusion Handling:** Incorporate advanced deep learning models to better manage severe occlusions.
-- **Player Re-identification:** Improve tracking accuracy with sophisticated re-ID models.
-- **Integration with VR/AR:** Explore real-time augmented reality overlays for live cricket analysis.
 
 ## Contributors
 List team members and specify individual contributions.
 
-## License
-This project is licensed under the MIT License.
