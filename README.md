@@ -85,6 +85,8 @@ For player detection and tracking, we employed YOLO (You Only Look Once). This m
 - Compatibility with various deep learning frameworks.
 
 **Example Reference:**
+
+
 ![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
 
 ![camera1_output-ezgif com-optimize](https://github.com/user-attachments/assets/f15c5e46-5404-435c-8860-9e0548fd409a)
