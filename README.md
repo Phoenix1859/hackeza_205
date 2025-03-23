@@ -31,8 +31,8 @@ The project draws inspiration from several pioneering works:
 - [Faster VoxelPose](https://github.com/AlvinYH/Faster-VoxelPose)
 - [MMPose](https://github.com/open-mmlab/mmpose)
 - [MVPose](https://github.com/zju3dv/mvpose)
-- Temo
-- Fast 3D Human Pose
+- [TEMPO: Efficient Multi-View Pose Estimation, Tracking, and Forecasting](https://github.com/rccchoudhury/tempo?tab=readme-ov-file)
+- [Fast-3D-Human-Pose-Estimation](https://github.com/eddie0509tw/Fast-3D-Human-Pose-Estimation?tab=readme-ov-file)
 - [BlazePose](https://github.com/geaxgx/depthai_blazepose)
 
 
