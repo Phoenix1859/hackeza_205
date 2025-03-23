@@ -6,21 +6,6 @@ This project aims to accurately estimate 3D poses of cricket players in real-tim
 In addition to that we have made a cool front end which can be hosted and deployed seamlessly.
 
 
-## Requirements
-
-### Multi-Camera 3D Pose Estimation
-- **Synchronized Cameras:** Utilize multiple cameras with precomputed camera projection matrices.
-- **2D Keypoint Extraction:** Extract 2D keypoints of players from each camera view using methods such as Mediapipe.
-- **Triangulation:** Apply triangulation techniques—either using translation matrices or deep learning inferences—to reconstruct accurate 3D joint positions.
-
-### Triangulation & 3D Reconstruction
-- **Occlusion Handling:** Intelligently merge partial observations from different cameras to overcome occlusions.
-- **Robustness:** Ensure the reconstruction is robust against varying camera angles and fast player movements.
-
-### Real-Time & Scalable Solution
-- **Optimized Pipeline:** Design the processing pipeline for real-time or near-real-time inference.
-- **Scalability:** Adapt the solution for different cricket stadium setups, ensuring it scales seamlessly with multiple camera inputs.
-
 
 ## Papers & Projects Referred
 The project draws inspiration from several pioneering works:
