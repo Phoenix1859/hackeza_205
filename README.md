@@ -112,6 +112,7 @@ After processing, the final step is to visualize the 3D reconstructions. We gene
 
 **Details:**  
 - **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
+![final-render-ezgif com-optimize](https://github.com/user-attachments/assets/d86cfc50-16a6-4525-9949-e9a04e9af176)
 
 
 
