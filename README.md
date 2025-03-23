@@ -50,29 +50,12 @@ These references have influenced our approach for 2D keypoint extraction and 3D 
    pip install -r requirements.txt
    ```
 
-3. **Data PreProcessing:**
-   - Run the preprocessing script to convert raw images (JPEG) to synchronized MP4 video files.
+3. **Launching:**
+   - Launch the app.
    ```sh
-   python preprocess.py
+   streamlit run app.py
    ```
 
-4. **2D Keypoint Extraction:**
-   - Extract 2D keypoints using the Mediapipe module.
-   ```sh
-   python extract_2d.py
-   ```
-
-5. **3D Triangulation & Reconstruction:**
-   - Compute 3D poses using triangulation.
-   ```sh
-   python triangulate.py
-   ```
-
-6. **Rendering:**
-   - Visualize the 3D reconstruction.
-   ```sh
-   python render.py
-   ```
 
 ## Solution
 
@@ -131,13 +114,7 @@ After processing, the final step is to visualize the 3D reconstructions. We gene
 - **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
 
 
-## Future Improvements
-- **Enhanced Occlusion Handling:** Incorporate advanced deep learning models to better manage severe occlusions.
-- **Player Re-identification:** Improve tracking accuracy with sophisticated re-ID models.
-- **Integration with VR/AR:** Explore real-time augmented reality overlays for live cricket analysis.
 
 ## Contributors
 List team members and specify individual contributions.
 
-## License
-This project is licensed under the MIT License.
