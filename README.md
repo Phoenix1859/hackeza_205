@@ -1,1 +1,103 @@
-# hackeza_205
+# Multi-Camera 3D Cricket Pose Estimation
+
+## Introduction
+This project aims to accurately estimate 3D poses of cricket players in real-time using multiple synchronized cameras. Leveraging known camera calibration matrices and state-of-the-art 2D keypoint extraction techniques, our solution reconstructs detailed 3D joint positions. The project is designed for deployment in cricket stadiums, where scalability and robust performance are crucial.
+
+In addition to that we have made a cool front end which can be hosted and deployed seamlessly 
+
+
+## Requirements
+
+### Multi-Camera 3D Pose Estimation
+- **Synchronized Cameras:** Utilize multiple cameras with precomputed camera projection matrices.
+- **2D Keypoint Extraction:** Extract 2D keypoints of players from each camera view using methods such as Mediapipe.
+- **Triangulation:** Apply triangulation techniques—either using translation matrices or deep learning inferences—to reconstruct accurate 3D joint positions.
+
+### Player Identification & Tracking
+- **Consistent Identification:** Develop algorithms to consistently associate the same player across different camera views.
+- **Stable IDs:** Maintain stable player IDs over time, ensuring smooth tracking throughout a sequence.
+
+### Triangulation & 3D Reconstruction
+- **Occlusion Handling:** Intelligently merge partial observations from different cameras to overcome occlusions.
+- **Robustness:** Ensure the reconstruction is robust against varying camera angles and fast player movements.
+
+### Real-Time & Scalable Solution
+- **Optimized Pipeline:** Design the processing pipeline for real-time or near-real-time inference.
+- **Scalability:** Adapt the solution for different cricket stadium setups, ensuring it scales seamlessly with multiple camera inputs.
+
+
+## Papers & Projects Referred
+The project draws inspiration from several pioneering works:
+- OpenPose
+- Metapose
+- Fast VoxelPose
+- MMPose
+- MVPose
+- Temo
+- Fast 3D Human Pose
+- Blazepose
+
+These references have influenced our approach for 2D keypoint extraction and 3D triangulation.
+
+## Solution Pipeline
+
+1. **Data PreProcessing**  
+   - Convert image data (e.g., JPEG sequences) into video format (MP4) for synchronized processing.
+  
+2. **2D Keypoint Extraction (Keystoning)**  
+   - Utilize Mediapipe to detect and extract 2D keypoints from each camera view.
+  
+3. **3D Triangulation**  
+   - Reconstruct 3D joint positions via triangulation, leveraging either classical translation matrices or deep learning-based inference methods.
+  
+4. **Rendering**  
+   - Visualize the reconstructed 3D poses using Matplotlib, Axes3D, and Poly3D.
+   - *Note:* Integration with advanced rendering engines like Unreal Engine is possible for enhanced visualization, though asset costs can be prohibitive.
+
+## How to Run the Project
+
+1. **Clone the Repository:**
+   ```sh
+   git clone https://github.com/your-repo/multi-camera-3d-cricket-pose.git
+   cd multi-camera-3d-cricket-pose
+   ```
+
+2. **Install Dependencies:**
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+3. **Data PreProcessing:**
+   - Run the preprocessing script to convert raw images (JPEG) to synchronized MP4 video files.
+   ```sh
+   python preprocess.py
+   ```
+
+4. **2D Keypoint Extraction:**
+   - Extract 2D keypoints using the Mediapipe module.
+   ```sh
+   python extract_2d.py
+   ```
+
+5. **3D Triangulation & Reconstruction:**
+   - Compute 3D poses using triangulation.
+   ```sh
+   python triangulate.py
+   ```
+
+6. **Rendering:**
+   - Visualize the 3D reconstruction.
+   ```sh
+   python render.py
+   ```
+
+## Future Improvements
+- **Enhanced Occlusion Handling:** Incorporate advanced deep learning models to better manage severe occlusions.
+- **Player Re-identification:** Improve tracking accuracy with sophisticated re-ID models.
+- **Integration with VR/AR:** Explore real-time augmented reality overlays for live cricket analysis.
+
+## Contributors
+List team members and specify individual contributions.
+
+## License
+This project is licensed under the MIT License.
