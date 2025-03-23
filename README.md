@@ -26,6 +26,7 @@ In addition to that we have made a cool front end which can be hosted and deploy
 The project draws inspiration from several pioneering works:
 
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+   - ![openpose](https://github.com/user-attachments/assets/ccc6f88a-b37f-4711-8ba3-1336e8b9f855)
 - [MetaPose](https://metapose.github.io/)
 - [Faster VoxelPose](https://github.com/AlvinYH/Faster-VoxelPose)
 - [MMPose](https://github.com/open-mmlab/mmpose)
@@ -88,6 +89,62 @@ These references have influenced our approach for 2D keypoint extraction and 3D 
    ```sh
    python render.py
    ```
+
+## Solution
+
+### 1) Data Processing  
+**Overview:**  
+The initial step involves converting raw images into a standardized video format. Each image is treated as a frame and collated into an MP4 file. This standardization is crucial for ensuring that all subsequent processing steps operate on a uniform data format.
+
+**Details:**  
+- **Frame Collation:** Raw images captured from various sources are organized in sequence.
+- **Video Encoding:** Using [OpenCV](https://opencv.org/) in Python, the frames are encoded into an MP4 file.
+- **Benefits:** A single video file reduces I/O overhead and ensures compatibility with video processing libraries.
+
+
+---
+
+### 2) 2D Inferencing via YOLO  
+**Overview:**  
+For player detection and tracking, we employed YOLO (You Only Look Once). This model processes the MP4 file to detect players, generate bounding boxes, and extract 2D keypoints.
+
+**Details:**  
+- **Detection:** YOLO processes each frame to detect players with high speed and accuracy.
+- **Bounding Boxes & Keypoints:** Detected players are enclosed in bounding boxes, and keypoint detection algorithms extract 2D coordinates (e.g., joints).
+- **Tools & Frameworks:** Our pipeline may use implementations like 
+**Benefits:**  
+- Real-time processing capabilities.
+- High accuracy in crowded scenes.
+- Compatibility with various deep learning frameworks.
+
+**Example Reference:**
+![camera2_output-ezgif com-optimize](https://github.com/user-attachments/assets/89cf8124-ce72-4af5-9c79-d548a6276e4f)
+
+
+---
+
+### 3) 3D Inferencing and Triangulation  
+**Overview:**  
+The next stage involves converting 2D keypoints into 3D space. This is achieved by inferring depth from the single MP4 file and applying triangulation techniques to reconstruct the 3D positions of the players.
+
+**Details:**  
+- **Depth Estimation:** Using machine learning models, the depth of each keypoint is inferred from the 2D data.
+- **Triangulation:** With corresponding points from multiple frames (or using temporal coherence), triangulation algorithms calculate the 3D coordinates.
+**Benefits:**  
+- Provides a spatially accurate representation of player positions.
+- Enhances the analysis of player dynamics and interactions.
+![3-Dinference1-ezgif com-optimize](https://github.com/user-attachments/assets/4471b7f8-6301-4a7b-99b1-09ac6ca3a2cf)
+![3-Dinference2-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/42d5c029-6238-4b58-8c4c-9cd8f2fc8fe7)
+
+---
+
+### 4) Visualization  
+**Overview:**  
+After processing, the final step is to visualize the 3D reconstructions. We generate a CSV file containing the keypoints (following the standard 33 keypoint human contour configuration per frame) and use visualization libraries to render the data.
+
+**Details:**  
+- **CSV Output:** The processed data is output in a CSV format, making it easy to integrate with various visualization tools.
+
 
 ## Future Improvements
 - **Enhanced Occlusion Handling:** Incorporate advanced deep learning models to better manage severe occlusions.
